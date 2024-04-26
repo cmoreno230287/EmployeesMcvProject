@@ -19,11 +19,13 @@ namespace MvcTest.Models.Employee
         private async Task<EmployeeOutput?> CalculateAnualSalaryAsync(EmployeeOutput employeeOutput)
         {
             EmployeeOutput Result = employeeOutput;
-            foreach (var item in Result.data)
+            if (Result.data != null)
             {
-                item.employee_anualsalary = item.employee_salary * 12;
+                foreach (var item in Result.data)
+                {
+                    item.employee_anualsalary = item.employee_salary * 12;
+                }
             }
-
             return Result;
         }
     }

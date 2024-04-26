@@ -20,17 +20,13 @@ namespace MvcTest.Services
 
         public async Task<EmployeeOutput?> GetEmployeesAsync(int? Id)
         {
-            //string endpoint = (Id == null) ? _getEmployeesEndPoint : _getEmployeeByIdEndPoint.Replace("{id}", Id.ToString());
-            string endpoint = _getEmployeesEndPoint;
+            string endpoint = (Id == null) ? _getEmployeesEndPoint : _getEmployeeByIdEndPoint.Replace("{id}", Id.ToString());
 
             var options = new RestClientOptions(_exampleApiBaseUrl);
             var client = new RestClient(options);
             var request = new RestRequest(endpoint);
             var response = await client.GetAsync<EmployeeOutput>(request);
-            if (Id != null)
-            {
-                response.data = response?.data?.Where(itm => itm.id == Id).ToArray();
-            }
+            
             return response;
         }
     }
