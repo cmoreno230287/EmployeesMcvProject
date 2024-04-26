@@ -2,16 +2,19 @@
 @{
     ViewData["Title"] = "Employee List";
 }
-<div id="message" style="display:none;" class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
-    Example element with utilities
+<div id="message" style="display:none;" class="alert alert-danger" role="alert">
+    <span></span>
+    <button type="button" class="btn-close" aria-label="Close"></button>
 </div>
 <div class="row">
     <div class="col-md-8 offset-md-2">        
-        <ul style="display: inline">
-            <li><h1>Employees List</h1></li>
-            <li><input type="text" id="txtSearch" /></li>
-            <li><button type="submit" id="btnSearch" class="btn btn-danger">Search</button></li>
-        </ul>
+        <div style="display: inline">
+            <h1>Employees List</h1>
+            <button type="submit" id="btnSearch" class="btn btn-primary" style="float: right;">
+                Search
+            </button>
+            <input type="text" id="txtSearch" class="form-control" style="float: right;width: 200px;margin-right: 5px;" />
+        </div>
 
         <table id="tableData" class="display" style="width:100%">
             <thead>

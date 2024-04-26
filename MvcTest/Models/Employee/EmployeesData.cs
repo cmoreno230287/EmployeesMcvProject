@@ -16,7 +16,7 @@ namespace MvcTest.Models.Employee
             return await CalculateAnualSalaryAsync(Result);
         }
 
-        private async Task<EmployeeOutput?> CalculateAnualSalaryAsync(EmployeeOutput employeeOutput)
+        public async Task<EmployeeOutput?> CalculateAnualSalaryAsync(EmployeeOutput employeeOutput)
         {
             EmployeeOutput Result = employeeOutput;
             if (Result.data != null)

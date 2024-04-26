@@ -8,6 +8,10 @@ js(document).ready(function () {
         var txtSearch = js("#txtSearch").val();
         LoadData(txtSearch);
     });
+
+    js("#message button").on("click", function () {
+        HideAlert();
+    })
 });
 
 function LoadData(id) {
@@ -20,7 +24,7 @@ function LoadData(id) {
         async: false,
         success: function (data) {
             if (data.status == null && data.data == null) {
-                alert(data.message);
+                ShowAlert(data.message, "danger alert-dismissible fade show");
             }
             else {
                 js.each(data.data, function (key, value) {
@@ -43,4 +47,17 @@ function LoadData(id) {
         data: employeesData,
         searching: false
     });
+}
+
+function ShowAlert(text, className) {
+    js("#message span").html(text);
+    js("#message").addClass(`alert alert-${className}`);
+    js("#message").show();
+}
+
+
+function HideAlert() {
+    js("#message span").html("");
+    js("#message").removeClass();
+    js("#message").hide();
 }
