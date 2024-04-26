@@ -1,0 +1,80 @@
+﻿@model IEnumerable<MvcTest.Models.Employee.EmployeeViewModel>
+@{
+    ViewData["Title"] = "Employee List";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h1>Employees List</h1>
+
+        <table class="table" id="tableData">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Salary
+                    </th>
+                    <th>
+                        Age
+                    </th>
+                    <th>
+                        Profile Image
+                    </th>
+                    <th>
+                        <input type="text" id="txtSearch" />
+                        <button type="submit" id="btnSearch" class="btn btn-danger">Search</button>
+                        @* <a asp-action="Index2" asp-route-id="4" class="btn btn-sm btn-success">
+                            <i class="fa-solid fa-plus"></i> Search
+                        </a> 
+
+                        <form method="get" enctype="multipart/form-data" asp-controller="Employee" asp-action="Index">
+                            <input type="text" id="txtSearch" name="id" />
+                            <input type="submit" value="Submit" />
+                        </form>*@
+
+                        @* <form asp-action="Index" asp-route-id="4">
+                            <input type="text" id="txtFirstName" name="FirstName" />
+                            <button type="submit" class="btn btn-danger">
+                                Search
+                            </button>
+                        </form> *@
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.employee_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.employee_salary)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.employee_age)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.profile_image)
+                        </td>
+                        <td>
+                            <form asp-action="Delete" asp-route-id="@item.id">
+                                <div class="btn-group btn-group-sm">
+                                    <a asp-action="AddOrEdit" asp-route-id="@item.id" class="btn btn-warning">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </a>
+                                    <button type="submit" class="btn btn-danger"
+                                            onclick="return confirm('Are you sure to delete this record?')">
+                                        <i class="far fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<MvcTest.Models.Employee.EmployeeViewModel>
+@{
+    ViewData["Title"] = "Employee List";
+}
+<div id="message" style="display:none;" class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+    Example element with utilities
+</div>
+<div class="row">
+    <div class="col-md-8 offset-md-2">        
+        <ul style="display: inline">
+            <li><h1>Employees List</h1></li>
+            <li><input type="text" id="txtSearch" /></li>
+            <li><button type="submit" id="btnSearch" class="btn btn-danger">Search</button></li>
+        </ul>
+
+        <table id="tableData" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Salary</th>
+                    <th>Anual Salary</th>
+                    <th>Age</th>
+                    <th>Profile Image</th>
+                </tr>
+            </thead>
+            <tbody>                
+                
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Name</th>
+                    <th>Salary</th>
+                    <th>Anual Salary</th>
+                    <th>Age</th>
+                    <th>Profile Image</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script>
+    <script src="~/js/site.js"></script>
+</div>
